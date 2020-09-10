@@ -9,32 +9,60 @@
             background-color: black;
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
         }
         h1 {
             text-transform: uppercase;
             font-size: 4em;
             margin: 0;
+            margin-top: 1rem;
         }
         img#toggle {
             height: 0.8em;
             cursor: pointer;
         }
-        main {
+        aside {
             opacity: 0;
         }
-        main img {
+        aside img {
             display: block;
             margin: 0 auto;
+        }
+        .banner {
+            margin: 0;
+            text-align: center;
+            background-color: #00ECFE;
+            font-weight: bold;
+            padding: .5rem;
+        }
+        a {
+            color: black;
+        }
+        @media only screen and (min-width: 620px) {
+            main {
+                display: flex;
+                margin: 1rem auto;
+                max-width: 768px;
+            }
+            main > * {
+                flex: 1;
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Power<br />Sw<img id="toggle" data-on="false" src="off.png" alt="">tch<br />Parenting</h1>
-    <h2>How to avoid parent burnout</h2>
-    <h3>A time management book for parents<br />by Nicole Mims and Anna Sink</h3>
+    <p class="banner"><a href="https://www.amazon.com/dp/B08HJN6S6J/" target="_blank" rel="noopener noreferrer">Free eBook: 9/11 thru 9/15</a></p>
     <main>
-        <a href="https://www.amazon.com/dp/B08HJN6S6J/"><img src="book.jpg" height="300" alt=""></a>
-        <p><a href="https://www.amazon.com/dp/B08HJN6S6J/" target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="https://www.niftybuttons.com/amazon/amazon-button2.png"></a></p>
+        <header>
+            <h1>Power<br />Sw<img id="toggle" data-on="false" src="off.png" alt="">tch<br />Parenting</h1>
+            <h2>How to avoid parent burnout</h2>
+            <h3>A time management book for parents<br />by <a href="https://www.linkedin.com/in/kimberly-mims-182816a8/">Nicole Mims</a> and <a href="https://www.linkedin.com/in/anna-sink-33610b38/">Anna Sink</a></h3>        
+        </header>
+        <aside>
+            <a href="https://www.amazon.com/dp/B08HJN6S6J/"><img src="book.jpg" height="300" alt=""></a>
+            <p><a href="https://www.amazon.com/dp/B08HJN6S6J/" target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="https://www.niftybuttons.com/amazon/amazon-button2.png"></a></p>    
+        </aside>
     </main>
     <script>
         document.getElementById('toggle').addEventListener('click', function(e) {
@@ -42,11 +70,11 @@
             if (e.target.getAttribute('src') == 'off.png') {
                 e.target.setAttribute('src', 'on.png')
                 document.body.style.backgroundColor = "white";
-                document.getElementsByTagName('main')[0].style.opacity = 1;
+                document.getElementsByTagName('aside')[0].style.opacity = 1;
             } else {
                 e.target.setAttribute('src', 'off.png')
                 document.body.style.backgroundColor = "black";
-                document.getElementsByTagName('main')[0].style.opacity = 0;
+                document.getElementsByTagName('aside')[0].style.opacity = 0;
             }
         })
     </script>
