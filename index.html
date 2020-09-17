@@ -11,17 +11,24 @@
             font-family: Arial, sans-serif;
             margin: 0;
         }
+        main, article {
+            margin-bottom: 1rem;
+        }
         h1 {
             text-transform: uppercase;
             font-size: 4em;
             margin: 0;
             margin-top: 1rem;
         }
+        img {
+            max-width: 100%;
+            margin: 0 auto;
+        }
         img#toggle {
             height: 0.8em;
             cursor: pointer;
         }
-        aside {
+        aside, article {
             opacity: 0;
         }
         aside img {
@@ -31,9 +38,17 @@
         .banner {
             margin: 0;
             text-align: center;
-            background-color: #00ECFE;
+            /* background-color: #00ECFE; */
+            background-color: #021f5d;
             font-weight: bold;
             padding: .5rem;
+        }
+        .banner a {
+            color: white;
+        }
+        .banner img {
+            display: block;
+            margin: 0 auto;
         }
         a {
             color: black;
@@ -52,7 +67,9 @@
     </style>
 </head>
 <body>
-    <!-- <p class="banner"><a href="https://www.amazon.com/dp/B08HJN6S6J/" target="_blank" rel="noopener noreferrer">Free eBook: 9/11 thru 9/15</a></p> -->
+    <p class="banner">
+        <img src="https://www.fox46.com/wp-content/uploads/sites/109/2020/04/GDC-Logo.png" width="100" alt="Fox 46 logo">
+        <a href="https://www.fox46.com/good-day-charlotte/parenting-in-the-new-era-of-virtual-learning/" target="_blank" rel="noopener noreferrer">(VIDEO) Parenting in the new era of virtual learning</a></p>
     <main>
         <header>
             <h1>Power<br />Sw<img id="toggle" data-on="false" src="off.png" alt="">tch<br />Parenting</h1>
@@ -64,6 +81,11 @@
             <p><a href="https://www.amazon.com/dp/B08HJN6S6J/" target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="https://www.niftybuttons.com/amazon/amazon-button2.png"></a></p>    
         </aside>
     </main>
+    <article>
+        <a href="https://www.fox46.com/good-day-charlotte/parenting-in-the-new-era-of-virtual-learning/">
+            <img src="./fox46-video.png" alt="Video still from Good Day Charlotte interview">
+        </a>
+    </article>
     <script>
         document.getElementById('toggle').addEventListener('click', function(e) {
             e.preventDefault();
@@ -71,10 +93,12 @@
                 e.target.setAttribute('src', 'on.png')
                 document.body.style.backgroundColor = "white";
                 document.getElementsByTagName('aside')[0].style.opacity = 1;
+                document.getElementsByTagName('article')[0].style.opacity = 1;
             } else {
                 e.target.setAttribute('src', 'off.png')
                 document.body.style.backgroundColor = "black";
                 document.getElementsByTagName('aside')[0].style.opacity = 0;
+                document.getElementsByTagName('article')[0].style.opacity = 0;
             }
         })
     </script>
